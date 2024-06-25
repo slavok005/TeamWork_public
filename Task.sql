@@ -1,6 +1,10 @@
--- Вывести названия и цены товаров, которые не были ни разу проданы
-SELECT 
-LastName
+-- Вывести фамилии менеджеров, у которых есть заказы, исп. механизм вложенных запросов
+SELECT
+	LastName
 FROM Employees
+
 WHERE
-EmployeeID IN (SELECT EmployeeID FROM Orders)
+	EmployeeID IN (
+    SELECT DISTINCT EmployeeID
+    FROM Orders
+)
