@@ -1,5 +1,6 @@
 -- Задача. Вывести названия треков с продолжительностью до 1 ч (вкл.)
 
 db.tracks.find(
-  { duration_secs: { $lte: 3600 } }
+  { duration_secs: { $lte: 1 } },
+  {title: 1, _id:0}
 )
