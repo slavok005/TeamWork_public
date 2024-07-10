@@ -1,7 +1,8 @@
-// Задача. Вывести данные о всех юзерах (проекция: без поля страны)
-db.users.find(
-    {},
+// Задача. Удалить всех заблокированных юзеров из China и Brazil с отрицательным балансом
+db.users.deleteMany(
     {
-      "country": 0
+        is_blocked: true,
+        country: { $in: ['China', 'Brazil'] },
+        balance: { $lt: 0 }
     }
-    )
+)
