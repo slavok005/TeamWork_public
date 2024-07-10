@@ -7,7 +7,11 @@ db.products.updarteMany(
   {
       $mul: {
           balance: .85,
-          quantity: -1
       }
+  },
+  {
+    $inc: {
+      quantity: -1
+    }
   }
 )
