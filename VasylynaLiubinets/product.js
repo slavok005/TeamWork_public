@@ -1,6 +1,7 @@
-db.products.updateMany()({
-    price: {$gt: 1000}},
+db.products.updateMany({
+    price: { $lt: 1000 }
+},
     {
-       $mul: { price: 0.85 },
-       $inc: {quantity: 1 }
-   });
+        $mul: { price: 0.85 },
+        $inc: { quantity: -1 }
+    });
