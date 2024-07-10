@@ -1,17 +1,13 @@
 db.products.updarteMany(
   {
-      price: { $lt: 1000 },
-      balance: { $gtr: 0 },
-      quantity: { $gtr: 0 }
+      price: { $lt: 1000 }
   },
   {
       $mul: {
-          balance: .85,
+          price: .85,
+      },
+      $inc: {
+          quantity: -1
       }
-  },
-  {
-    $inc: {
-      quantity: -1
-    }
   }
 )
